@@ -51,7 +51,7 @@ class App extends Component {
   
     Consol = () => {
       console.log(this.state.persons , 'asa pt 1');
-    }
+     }
 
     Consol1 = () => {
       console.log(this.state.showtoggle);
