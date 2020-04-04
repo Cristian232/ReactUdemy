@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import UserOutput from './UserOutput';
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 
 
 class App extends Component {
@@ -48,7 +48,6 @@ class App extends Component {
 
     }
      
-  
     Consol = () => {
       console.log(this.state.persons , 'asa pt 1');
       }
@@ -77,6 +76,13 @@ class App extends Component {
       }
       };
 
+      const mystyle1 = {
+        ':hover': {
+          backgroundColor : 'black',
+          color : 'white'
+        }
+        };
+
 
     const classes = [];
     if(this.state.persons.length <= 2){
@@ -91,9 +97,11 @@ class App extends Component {
     if(this.state.showtoggle){
        
       pers = (
-         <div >
+         <div className = 'aa'>
          {this.state.persons.map((perso , index) =>{
         return <UserOutput 
+
+
          
          click = { () => this.deletePersH(index)}
          name = {this.state.persons[index].name} 
@@ -112,29 +120,32 @@ class App extends Component {
       
       mystyle.backgroundColor = 'blue';
       mystyle.border = '2px solid blue';
+     
    
    
     }
 
     return (
-      <div className="App">
-        
-        <h1 className = {classes.join(' ')}>haha :)  back baby :))</h1>
-       
-       
-        
-        
-        <button type='submit'
-        style = {mystyle}
-        onClick = {this.ToggleButton}
-        > Show persons </button>
-        
-        {pers}
-        {/* <UserOutput name={this.state.name} > </UserOutput>
-        <UserOutput userName = 'Cristi' />
-        <UserOutput userName = {this.state.usern}/> */}
-        {console.log(this.state.persons , 'asa pt 2')}
-      </div>
+    <StyleRoot>
+          <div className="App">
+            
+            <h1  className = {classes.join(' ')}>haha :)  back baby :))</h1>
+            
+            
+            
+            
+            <button type='submit'
+            style = {mystyle}
+            onClick = {this.ToggleButton}
+            > Show persons </button>
+            
+            {pers }
+            {/* <UserOutput name={this.state.name} > </UserOutput>
+            <UserOutput userName = 'Cristi' />
+            <UserOutput userName = {this.state.usern}/> */}
+            {console.log(this.state.persons , 'asa pt 2')}
+          </div>
+      </StyleRoot>
     )
   }  
 }
