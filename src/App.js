@@ -66,25 +66,22 @@ class App extends Component {
 
   render(){
 
-    const mystyle = {
-      border : '2px solid red',
-      padding : '10px',
-      margin : '0 auto',
-      display: 'block',
-      align : 'center',
-      backgroundColor : 'red',
-      ':hover': {
-        backgroundColor : 'black',
-        color : 'white'
-      }
-      };
 
-      const mystyle1 = {
-        ':hover': {
-          backgroundColor : 'black',
-          color : 'white'
-        }
-        };
+
+  
+
+        const StyledButton = styled.button`
+        border : 2px solid ${props => props.alt ? 'red' : 'navy'};
+        padding : 10px;
+        margin : 0 auto;
+        display: block;
+        align : center;
+        background-color :${props => props.alt ? 'red' : 'blue'};
+        color : ${props => props.alt ? 'pink' : 'white'};
+        &:hover {
+          background-color : ${props => props.alt ? 'pink' : 'cyan'};
+          color :${props => props.alt ?'red' : 'blue'};
+        `;
 
         const StyledDiv = styled.div`
         .red {
@@ -147,8 +144,7 @@ class App extends Component {
         </div>
         </StyledDiv>)
       
-      mystyle.backgroundColor = 'blue';
-      mystyle.border = '2px solid blue';
+
      
    
    
@@ -163,10 +159,10 @@ class App extends Component {
             
             
             
-            <button type='submit'
-            style = {mystyle}
+            <StyledButton type='submit'
+            alt = {this.state.showtoggle}
             onClick = {this.ToggleButton}
-            > Show persons </button>
+            > Show persons </StyledButton>
             
             {pers }
             {/* <UserOutput name={this.state.name} > </UserOutput>
