@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import UserOutput from './UserOutput';
+import styled from 'styled-components';
 
 
 
@@ -21,6 +22,8 @@ class App extends Component {
           usern : 'Cristi'}],
         showtoggle : false
       };
+
+     
 
     deletePersH = (persindex) => {
       const perss = [...this.state.persons] ;
@@ -83,6 +86,30 @@ class App extends Component {
         }
         };
 
+        const StyledDiv = styled.div`
+        .red {
+          background-color: blue;
+      }
+      
+      .bold {
+          background-color: blueviolet;
+      }
+      
+      @media (min-width:500px) {
+          .aa {
+              width : 300px;
+              margin: 10px auto;
+              padding: 20px auto;
+              
+          }
+      
+          .UserOutput {
+              padding: 20px 20px;
+              margin: 10px auto;
+              background-color : grey;
+          }
+      }
+        `;
 
     const classes = [];
     if(this.state.persons.length <= 2){
@@ -97,6 +124,7 @@ class App extends Component {
     if(this.state.showtoggle){
        
       pers = (
+        <StyledDiv>
          <div className = 'aa'>
          {this.state.persons.map((perso , index) =>{
         return <UserOutput 
@@ -116,7 +144,8 @@ class App extends Component {
          )}
         
         
-        </div>)
+        </div>
+        </StyledDiv>)
       
       mystyle.backgroundColor = 'blue';
       mystyle.border = '2px solid blue';
