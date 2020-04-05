@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import UserOutput from './UserOutput';
 import styled from 'styled-components';
+import classes from './Person.module.css';
+
+import Kerson from './Person';
 
 
 
@@ -156,6 +159,7 @@ class App extends Component {
             
             <h1  className = {classes.join(' ')}>haha :)  back baby :))</h1>
             
+            <Kerson></Kerson>
             
             
             
