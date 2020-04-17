@@ -1,4 +1,4 @@
-import React, {Components} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Person from '../Persons/Person/Person';
 
@@ -41,11 +41,7 @@ return (
             Show persons
         </StyledButton>
 
-        <Person
-            persons = {props.persons}
-            toggle = {props.showtoggle}
-            changed = {props.changed}
-        />
+
 
     </div>
 );

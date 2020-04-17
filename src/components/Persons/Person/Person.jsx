@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import UserOutput from '../../../UserOutput';
 
 
+
+
+
 const person = (props) => props.persons.map((perso , index) =>{
 
     const StyledDiv = styled.div`
@@ -33,23 +36,26 @@ const person = (props) => props.persons.map((perso , index) =>{
 
 
 
+    console.log(perso.id);
+
 
     return (
-        (props.toggle) ? 
             <StyledDiv>
                 <div 
                     className = 'aa'>
                     <UserOutput 
-                    click = { () => props.delete(index)}
+                    
                     name = {perso.name} 
                     userName = {perso.usern}
                     id = {perso.id}
-                    key = {(perso.id)}
+                    key = {perso.id}
                     changed = {props.changed}
+                    ikk = {perso.id}
+
                     />
                 </div>
             </StyledDiv>
-        : null
+       
     )
     });
 

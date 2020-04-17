@@ -3,6 +3,7 @@ import './App.css';
 import UserOutput from '../../UserOutput';
 import styled from 'styled-components';
 //import classes from './Person.module.css';
+import Person from '../Persons/Person/Person';
 
 
 import Cockpit from '../Cockpit/Cockpit';
@@ -24,16 +25,12 @@ class App extends Component {
           {id : 'asf4',
             name : 'hello00' ,
           usern : 'Cristi'}],
-        showtoggle : 'false'
+        showtoggle : false
       };
 
      
 
-    deletePersH = (persindex) => {
-      const perss = [...this.state.persons] ;
-      perss.splice(persindex,1);
-      this.setState({persons : perss});
-    };
+    
    
 
     OnChangeEH = (event,id) => {
@@ -61,12 +58,23 @@ class App extends Component {
       this.setState ({showtoggle : !sst});
     }
 
+    conso = () => {
+      console.log('Check '+  + ' ... ')
+    }
+
   render(){
 
     let pers = null;
 
     if(this.state.showtoggle){
-       
+      pers = (
+        <Person 
+          persons = {this.state.persons}
+          changed = {() => this.OnChangeEH()}
+          clickk = {this.conso}
+          key = {this.state.persons.id}
+        />
+      )  
     }
 
     return (
@@ -75,10 +83,13 @@ class App extends Component {
             <Cockpit
               lenght = {this.state.persons.length}
               showtoggle = {this.state.showtoggle}
-              ToggleButton = {() => this.ToggleButton()}
+              ToggleButton = {this.ToggleButton}
               persons = {this.state.persons}
-              changed = {(event) => this.OnChangeEH(event,id)}
+              changed = {(event) => this.OnChangeEH}
             />
+
+            {pers}
+
           </div>
       
     )
